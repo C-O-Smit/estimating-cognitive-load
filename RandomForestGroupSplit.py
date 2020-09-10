@@ -18,10 +18,6 @@ from sklearn import metrics
 from tsfresh.feature_extraction import feature_calculators
 from sklearn.model_selection import GroupShuffleSplit
 from sklearn.model_selection import GroupKFold
-from sklearn.model_selection import train_test_split
-from sklearn.model_selection import cross_val_score
-
-
 
 ############################# SETTINGS ##############################
 # The features you wish to take from the datasheets with a calculation mean and variance
@@ -283,11 +279,6 @@ if Confusion:
     for title, normalize in titles_options:
         disp = plot_confusion_matrix(clf, X_test, y_test,
                                      display_labels=['Baseline','1-back','2-back'],
-# =============================================================================
-#                                      display_labels=['Baseline Easy Road','Baseline Hard Road','Baseline Study 1',
-#                                                      '1-back Easy Road','1-back Hard Road','1-back Study 1','2-back Easy Road',
-#                                                      '2-back Hard Road','2-back Study 1','3-back Study 1'],
-# =============================================================================
                                      cmap=plt.cm.Blues,
                                      normalize=normalize)
         plt.xticks(rotation=90)
@@ -295,10 +286,3 @@ if Confusion:
         plt.savefig('graph.png', dpi=300, bbox_inches='tight')
     plt.show()
     
-# =============================================================================
-# m, b = np.polyfit(x, y, 1)
-#     
-#     
-# klas = 0    
-# plt.scatter(RFmatrix['median Right Eye_Pupil Diameter Corrected'][RFmatrix['Class']==klas]+RFmatrix['median Left Eye_Pupil Diameter Corrected'][RFmatrix['Class']==klas],RFmatrix['median RGB Combined Corrected'][RFmatrix['Class']==klas])
-# =============================================================================
